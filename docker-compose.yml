@@ -1,0 +1,11 @@
+
+services:
+  nextjs-app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules  # чтобы node_modules контейнера не мешали локальным
+    environment:
+      - NODE_ENV=development
