@@ -1,5 +1,7 @@
+
 import Link from 'next/link';
 
+// Вынесем интерфейсы в отдельный файл types.ts при необходимости
 interface Book {
   id: string;
   title: string;
@@ -14,9 +16,9 @@ interface Comment {
   date: string;
 }
 
-// Получение данных для форума
+// Серверная функция для получения данных
 async function getForumData(): Promise<Book[]> {
-  // Пример данных (можно заменить на запрос к API)
+  // В реальном приложении замените на запрос к API
   return [
     {
       id: '1',
@@ -46,9 +48,16 @@ export default async function ForumPage() {
       <h1 className="text-3xl font-bold mb-8">Форум обсуждений</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {books.map((book) => (
-          <div key={book.id} className="border rounded-lg p-4 hover:shadow-lg transition-shadow">
-            <Link href={`/books/${book.id}/forum`}>
-              <img src={book.cover} alt={book.title} className="w-full h-48 object-cover mb-4 rounded-lg" />
+          <div
+            key={book.id}
+            className="border rounded-lg p-4 hover:shadow-lg transition-shadow"
+          >
+            <Link href={`/books/${book.id}/forum`} className="block">
+              <img
+                src={book.cover}
+                alt={book.title}
+                className="w-full h-48 object-cover mb-4 rounded-lg"
+              />
               <h2 className="text-xl font-semibold mb-2">{book.title}</h2>
             </Link>
 
@@ -56,7 +65,10 @@ export default async function ForumPage() {
               <h3 className="font-medium text-gray-700">Последние отзывы:</h3>
               {book.latestComments.length > 0 ? (
                 book.latestComments.map((comment) => (
-                  <div key={comment.id} className="text-sm p-2 bg-gray-50 rounded">
+                  <div
+                    key={comment.id}
+                    className="text-sm p-2 bg-gray-50 rounded"
+                  >
                     <div className="flex justify-between items-start mb-1">
                       <span className="font-medium">{comment.author}</span>
                       <span className="text-gray-500 text-xs">{comment.date}</span>
@@ -70,7 +82,7 @@ export default async function ForumPage() {
             </div>
 
             <Link
-              href={`/forum/${book.id}`}
+              href={`/books/${book.id}/forum`} // Исправленная ссылка
               className="mt-4 inline-block text-blue-600 hover:underline text-sm"
             >
               Все отзывы →

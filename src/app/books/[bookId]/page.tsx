@@ -32,29 +32,25 @@ export default async function BookPage({
 
   return (
     <>
-      <TopBar />
-      <div className="flex">
-        <Menu />
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="md:w-1/3">
-              <img src={book.cover} alt={book.title} className="w-full rounded-lg" />
-            </div>
-            <div className="md:w-2/3">
-              <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
-              <p className="text-xl text-gray-600 mb-4">{book.author}</p>
-              <p className="text-2xl font-bold mb-6">{book.price} ₽</p>
-              <p className="mb-8">{book.description}</p>
-              {/* Ссылка на форум */}
-              <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-                <h2 className="text-xl font-semibold mb-4">Обсуждение книги</h2>
-                <Link
-                  href={`/books/${book.id}/forum`}
-                  className="text-blue-600 hover:underline"
-                >
-                  Перейти к обсуждению →
-                </Link>
-              </div>
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="md:w-1/3">
+            <img src={book.cover} alt={book.title} className="w-full rounded-lg" />
+          </div>
+          <div className="md:w-2/3">
+            <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
+            <p className="text-xl text-gray-600 mb-4">{book.author}</p>
+            <p className="text-2xl font-bold mb-6">{book.price} ₽</p>
+            <p className="mb-8">{book.description}</p>
+            {/* Ссылка на форум */}
+            <div className="mt-8 p-4 bg-gray-50 rounded-lg">
+              <h2 className="text-xl font-semibold mb-4">Обсуждение книги</h2>
+              <Link
+                href={`/books/${book.id}/forum`}
+                className="text-blue-600 hover:underline"
+              >
+                Перейти к обсуждению →
+              </Link>
             </div>
           </div>
         </div>
