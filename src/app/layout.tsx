@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <TopBar />
         <Menu />
-        <main className="ml-64 mt-16 min-h-[calc(100vh-4rem)] p-8 transition-all duration-300">
+        <main className="ml-64 mt-16 min-h-[calc(100vh-4rem)] transition-all duration-300">
           {children}
         </main>
       </body>

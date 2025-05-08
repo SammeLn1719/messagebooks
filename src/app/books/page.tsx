@@ -47,7 +47,7 @@ export default function CatalogPage() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="top-12 relative h-auto container mx-auto px-4 py-8">
+    <div className="relative h-auto container mx-auto px-4">
       <h1 className="text-3xl font-bold mb-8">Каталог книг</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {books.map((book) => (
