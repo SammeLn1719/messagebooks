@@ -7,3 +7,11 @@ export interface Book {
   price: number;
   cover?: string;
 }
+
+export type User = {
+  id: number
+  username: string
+  email: string
+  isAdmin?: boolean
+  createdAt?: string
+}
